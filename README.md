@@ -54,6 +54,7 @@ Our project contains code from multiple ROS packages.
 - pointcloud_to_laserscan: http://wiki.ros.org/pointcloud_to_laserscan
 - octomap: http://wiki.ros.org/octomap
 - octomap_msgs: http://wiki.ros.org/octomap_msgs
+Our project also contains some object models from: http://www.ycbbenchmarks.com/
 
 ### Modified packages
 We included large parts of the code, altered and added parts of following packages:
