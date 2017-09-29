@@ -1,2 +1,0 @@
-use
-dot -Tpng file.dot -o file.png
