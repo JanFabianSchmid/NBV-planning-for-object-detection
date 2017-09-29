@@ -57,6 +57,7 @@ Our project contains code from multiple ROS packages.
 - pointcloud_to_laserscan: http://wiki.ros.org/pointcloud_to_laserscan
 - octomap: http://wiki.ros.org/octomap
 - octomap_msgs: http://wiki.ros.org/octomap_msgs
+- iai_kinect2: https://github.com/code-iai/iai_kinect2
 
 Our project also contains some object models from: http://www.ycbbenchmarks.com/
 
