@@ -31,10 +31,13 @@ e) frontier_plus
 
  ### For the simulation:
 - in catkin_ws: source devel/setup.bash
+
 Two options
 - roslaunch evaluation experiment.launch
 - the parameters in evaluation/experiment_setup will be used for the simulation
-- OR
+
+OR
+
 - roslaunch p3dx_description everything.launch
 - In Rviz the exploration boundaries have to be published using publish point
 
