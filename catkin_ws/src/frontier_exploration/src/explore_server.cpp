@@ -289,7 +289,7 @@ private:
               locator_srv.request.publish = true;
 
               ROS_INFO("Locating candidates");
-              if (locator_client.call(locator_srv))
+              if (locator_client.call(locator_srv) && locator_srv.response.candidates.data.size() > 0)
               {
                 ros::ServiceClient octomap_merge_client = nh_.serviceClient<octomap_msgs::MergeCandidates>("octomap_server/merge_candidates");
                 octomap_msgs::MergeCandidates octomap_merge_srv;
@@ -299,7 +299,7 @@ private:
                 if (octomap_merge_client.call(octomap_merge_srv))
                 {
                   ROS_INFO("Candidates merged");
-                  finishedTask(false);
+                  // finishedTask(false);
                 }
                 else
                 {
@@ -308,7 +308,10 @@ private:
               }
               else
               {
-                ROS_ERROR("Failed to call candidate locator service");
+                if (locator_srv.response.candidates.data.size() <= 0)
+                  ROS_ERROR("Candidate locator service returned no point clouds");
+                else
+                  ROS_ERROR("Failed to call candidate locator service");
               }
             }
             else
