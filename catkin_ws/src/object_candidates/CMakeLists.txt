@@ -10,10 +10,17 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   message_generation
+  candidate_locator
+  octomap_ros
 )
 
 find_package(Boost COMPONENTS serialization REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(octomap REQUIRED)
+# add_definitions(-DOCTOMAP_NODEBUGOUT)
+
+message(STATUS "OCTOMAP_INCLUDE_DIRS = ${OCTOMAP_INCLUDE_DIRS}")
+message(STATUS "OCTOMAP_LIBRARIES = ${OCTOMAP_LIBRARIES}")
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
@@ -48,9 +55,11 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES object_candidates
-  CATKIN_DEPENDS message_runtime cv_bridge image_transport roscpp sensor_msgs std_msgs
-#  DEPENDS system_lib
+  CATKIN_DEPENDS message_runtime cv_bridge image_transport roscpp sensor_msgs std_msgs octomap_ros
+  DEPENDS PCL Boost octomap
 )
+
+include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS} ${OCTOMAP_INCLUDE_DIRS})
 
 add_executable(object_candidates_node
   src/object_candidates_node.cpp
@@ -103,6 +112,10 @@ add_executable(object_candidates_server
   src/egbis/segment-image.cpp
   src/egbis/disjoint-set.cpp
 )
+
+add_executable(process_view_server src/process_view_server.cpp)
+target_link_libraries(process_view_server ${catkin_LIBRARIES} ${OCTOMAP_LIBRARIES})
+add_dependencies(process_view_server ${object_candidates_EXPORTED_TARGETS})
 
 add_dependencies(object_candidates_server ${object_candidates_EXPORTED_TARGETS})
 
