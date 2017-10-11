@@ -141,28 +141,30 @@ candidate_locator::ArrayPointClouds CandidateLocator::locateCandidates(
     {
       ROS_ERROR("%s", e.what());
     }
-
+    
     pcl::PointCloud<pcl::PointXYZRGB> point_cloud;
     sensor_msgs::PointCloud2 pc_msg;
 
     ROS_INFO_STREAM("Candidate " << candidate_id_ << ": ");
     this->calculateObjectPoints(candidate, point_cloud);
 
-    pcl::toROSMsg(this->getMinCluster(point_cloud), pc_msg);
-          
-    pc_msg.header.frame_id = camera_frame_;
-    
-    // pcl_ros::transformPointCloud(
-    //   "/map",
-    //   map_transform_,
-    //   pc_msg,
-    //   pc_msg);
+    if (point_cloud.points.size() > 0)
+    {
+      pcl::toROSMsg(this->getMinCluster(point_cloud), pc_msg);
+      
+      pc_msg.header.frame_id = camera_frame_;
+      
+      // pcl_ros::transformPointCloud(
+      //   "/map",
+      //   map_transform_,
+      //   pc_msg,
+      //   pc_msg);
 
-    array_pc_msg.data.push_back(pc_msg);
+      array_pc_msg.data.push_back(pc_msg);
+    }
   }
 
   return array_pc_msg;
-
 }
 
 void CandidateLocator::getTransforms(const ros::Time& stamp)
