@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find p3dx_description)/launch/everything.launch" >
+  </include>
+
+  <param name="joy_node/dev" type="str" value="/dev/input/js0"/>
+  <node name="joy" type="joy_node" pkg="joy" output="screen" />
+  <node name="teleop_twist_joy" type="teleop_node" pkg="teleop_twist_joy" output="screen" />
+  
+  <node name="controller_listener" type="controller_listener"  pkg="presentation" output="screen" />
+  
+</launch>

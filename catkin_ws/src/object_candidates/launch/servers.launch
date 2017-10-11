@@ -1,4 +1,5 @@
 <launch>
   <node name="object_candidates_server" type="object_candidates_server" pkg="object_candidates" output="screen" />
   <node name="snapshot_server" type="snapshot_server" pkg="object_candidates" output="screen" />
+  <node name="process_view_server" type="process_view_server" pkg="object_candidates" output="screen" />
 </launch>
