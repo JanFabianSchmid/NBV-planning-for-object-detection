@@ -15,6 +15,9 @@
   <arg name="cheat_mode" default="true" />
   <arg name="min_certainty" default="1" />
   
+  <arg name="gmapping" default="true" />
+  <arg name="rtabmap" default="false" />
+  
   <param name="cheat_mode" type="bool" value="$(arg cheat_mode)"/>
   <param name="world" type="str" value="$(arg world)"/>
 
@@ -30,6 +33,13 @@
 
   <include file="$(find p3dx_navigation)/launch/move_base.launch" >
     <arg name="use_sim_time" value="$(arg use_sim_time)" />
+  </include>
+  
+  <include if="$(arg gmapping)" file="$(find gmapping)/launch/gmapping.launch" >
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+  </include>
+  
+  <include if="$(arg rtabmap)" file="$(find rtabmap_ros)/launch/rgbd_mapping.launch" >
   </include>
 
   <include file="$(find frontier_exploration)/launch/global_map.launch" >
