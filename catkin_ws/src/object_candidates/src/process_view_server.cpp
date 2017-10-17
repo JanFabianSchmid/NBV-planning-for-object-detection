@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include "object_candidates/Snapshot.h"
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 #include "object_candidates/Objectcandidates.h"
 #include "candidate_locator/LocateCandidates.h"
 #include "octomap_msgs/MergeCandidates.h"

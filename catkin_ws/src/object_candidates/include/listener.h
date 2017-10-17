@@ -3,7 +3,7 @@
 
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 
 class LISTENER
 {
@@ -21,7 +21,7 @@ private:
     ros::Subscriber sub;
 
     // callback that is called when a new image is published to the topic
-    void imageCb(const object_candidates::ArrayImages msg);
+    void imageCb(const candidate_locator::ArrayImages msg);
 };
 
   #endif // LISTENER_H

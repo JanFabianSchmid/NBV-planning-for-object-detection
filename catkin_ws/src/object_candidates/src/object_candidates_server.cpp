@@ -6,7 +6,7 @@
 #include <image_transport/image_transport.h>
 
 #include "object_candidates/Objectcandidates.h"
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -301,7 +301,7 @@ bool generate_candidates(object_candidates::Objectcandidates::Request  &req,
     std::vector<std::vector<cv::Point>> segments;
     std::vector<cv::Mat> blobs, colorCandidates;
     
-    object_candidates::ArrayImages rosimgs;
+    candidate_locator::ArrayImages rosimgs;
     //sensor_msgs::CvBridge bridge_;
       
     try
