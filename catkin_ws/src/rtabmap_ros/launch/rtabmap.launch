@@ -129,7 +129,8 @@
       <param name="approx_sync"          type="bool"   value="$(arg approx_sync)"/>
       <param name="config_path"          type="string" value="$(arg cfg)"/>
       <param name="queue_size"           type="int" value="$(arg queue_size)"/>
-      
+      <param name="grid_size"           type="double" value="20"/>
+
       <remap from="rgb/image"       to="$(arg rgb_topic_relay)"/>
       <remap from="depth/image"     to="$(arg depth_topic_relay)"/>
       <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
