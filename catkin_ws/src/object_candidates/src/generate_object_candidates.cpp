@@ -4,7 +4,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <sensor_msgs/image_encodings.h>
 
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -17,7 +17,7 @@
 OBJECT_CANDIDATES::OBJECT_CANDIDATES() : it_(nh_)
 {
     image_sub_ = it_.subscribe("/kinect2/sd/image_color_rect", 1, &OBJECT_CANDIDATES::imageCb, this);
-    image_pub_ = nh_.advertise<object_candidates::ArrayImages>("/object_candidates/output", 1000, true);
+    image_pub_ = nh_.advertise<candidate_locator::ArrayImages>("/object_candidates/output", 1000, true);
     
     VOCUS2_Cfg cfg;
     vocus_ = VOCUS2(cfg);
@@ -280,7 +280,7 @@ void OBJECT_CANDIDATES::imageCb(const sensor_msgs::ImageConstPtr& msg)
     std::vector<std::vector<cv::Point>> segments;
     std::vector<cv::Mat> blobs, colorCandidates;
     
-    object_candidates::ArrayImages rosimgs;
+    candidate_locator::ArrayImages rosimgs;
     //sensor_msgs::CvBridge bridge_;
       
     try

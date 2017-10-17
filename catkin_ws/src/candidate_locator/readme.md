@@ -12,7 +12,7 @@ To trigger the generation of object candidates, you then run the service client.
 
 - Terminal window 4: `./(catkin_ws)/devel/lib/candidate_locator/candidate_locator_client`
 
-The node listens to the `/candidates_snapshot` topic and processes new messages in the callback. It publishes the results to the topic `candidate_point_clouds` as a message of type `candidate_locator::ArrayPointClouds`, which is an array wrapper around `sensor_msgs::PointCloud2` (exactly like how `object_candidates::ArrayImages` wraps around `sensor_msgs::Image`).
+The node listens to the `/candidates_snapshot` topic and processes new messages in the callback. It publishes the results to the topic `candidate_point_clouds` as a message of type `candidate_locator::ArrayPointClouds`, which is an array wrapper around `sensor_msgs::PointCloud2` (exactly like how `candidate_locator::ArrayImages` wraps around `sensor_msgs::Image`).
 
 Currently, for visualisation/debug purposes, I'm also creating another point cloud containing all the candidate surfaces. This is published to the topic `/candidate_pcs_debug`. This topic can be visualised in rviz.
 

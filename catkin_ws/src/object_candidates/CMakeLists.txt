@@ -36,7 +36,6 @@ link_directories(
 
 add_message_files(
   FILES
-  ArrayImages.msg
   SnapshotMsg.msg
 )
 
@@ -50,6 +49,7 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   sensor_msgs
+  candidate_locator
 )
 
 catkin_package(

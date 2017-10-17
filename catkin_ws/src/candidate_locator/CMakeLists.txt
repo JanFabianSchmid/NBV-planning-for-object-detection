@@ -58,6 +58,7 @@ find_package(PCL REQUIRED COMPONENTS common)
 add_message_files(
   FILES
   ArrayPointClouds.msg
+  ArrayImages.msg
 )
 
 # Generate services in the 'srv' folder
@@ -78,7 +79,6 @@ generate_messages(
   DEPENDENCIES
   std_msgs
   sensor_msgs
-  object_candidates
 )
 
 ################################################

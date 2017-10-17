@@ -12,7 +12,7 @@
 #include <pcl_ros/transforms.h>
 #include <pcl/point_types.h>
 
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 #include "object_candidates/SnapshotMsg.h"
 #include "candidate_locator/ArrayPointClouds.h"
 
@@ -24,7 +24,7 @@ public:
 		const sensor_msgs::Image& depth_image,
 	  const sensor_msgs::Image& rgb_image,
 	  const sensor_msgs::CameraInfo& rgb_info,
-	  const object_candidates::ArrayImages& candidates);
+	  const candidate_locator::ArrayImages& candidates);
 
 private:
 	ros::NodeHandle nh_;

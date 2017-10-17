@@ -22,7 +22,7 @@
 
 #include <sensor_msgs/image_encodings.h>
 #include <image_transport/image_transport.h>
-#include "object_candidates/ArrayImages.h"
+#include "candidate_locator/ArrayImages.h"
 
 #include "candidate_locator/LocateCandidates.h"
 #include "candidate_locator/ArrayPointClouds.h"

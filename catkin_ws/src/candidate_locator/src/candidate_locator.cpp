@@ -101,7 +101,7 @@ candidate_locator::ArrayPointClouds CandidateLocator::locateCandidates(
   const sensor_msgs::Image& depth_image,
   const sensor_msgs::Image& rgb_image,
   const sensor_msgs::CameraInfo& rgb_info,
-  const object_candidates::ArrayImages& candidates)
+  const candidate_locator::ArrayImages& candidates)
 {
   ROS_INFO_STREAM("");
   ROS_INFO_STREAM("----------");
