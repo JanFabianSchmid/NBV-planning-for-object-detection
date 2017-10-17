@@ -160,7 +160,7 @@ namespace octomap_server
 	  ROS_INFO_STREAM("Minimum certainty required for match: " << min_certainty);
 
 	  //DEBUG visualisation
-	  // PCLPointCloud visualisation_pc;
+	  PCLPointCloud visualisation_pc;
 
 	  // Get the volumes of all candidates in m_octree
 	  std::map<uint, double> candidate_volumes;
@@ -290,14 +290,14 @@ namespace octomap_server
 	    counter++;
 
 	    //DEBUG visualisation
-	    // visualisation_pc += pcl_pc;
+	    visualisation_pc += pcl_pc;
 	  }
 
 	  //DEBUG visualisation
-	  // sensor_msgs::PointCloud2 visualisation_msg;
-	  // pcl::toROSMsg(visualisation_pc, visualisation_msg);
-	  // visualisation_msg.header.frame_id = m_worldFrameId;
-	  // m_visualisation_pub.publish(visualisation_msg);
+	  sensor_msgs::PointCloud2 visualisation_msg;
+	  pcl::toROSMsg(visualisation_pc, visualisation_msg);
+	  visualisation_msg.header.frame_id = m_worldFrameId;
+	  m_visualisation_pub.publish(visualisation_msg);
 
 	  return true;
 	}

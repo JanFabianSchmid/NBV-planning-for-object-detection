@@ -40,7 +40,7 @@ namespace evaluation
 
 		  ros::NodeHandle nh_;
 		  tf::TransformListener listener_;
-		  ros::Publisher frontier_cloud_pub = nh_.advertise<sensor_msgs::PointCloud2>("ground_truths",20);
+		  //ros::Publisher frontier_cloud_pub = nh_.advertise<sensor_msgs::PointCloud2>("ground_truths",20);
 		  double evaluation_time = 0.0;
 		  int nbv_count = 0;
 
